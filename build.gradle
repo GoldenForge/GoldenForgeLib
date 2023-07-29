@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'fr.modcraftmc'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://raw.githubusercontent.com/GoldenForge/maven/master/' }
+}
+
+dependencies {
+    implementation('org.goldenforge:GoldenForge:1.19.2-43.2.21')
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'org.goldenforge'
+            artifactId = 'GoldenForgeLib'
+            version = '1.0'
+
+            from components.java
+        }
+    }
+}
